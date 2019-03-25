@@ -60,6 +60,8 @@ class Base extends Model {
             return false;
         };
         $data = $this->FormData;
+//        dump($data);
+//        exit;
         if (empty($data['id'])) {//新增数据
             if(!empty($id)){ $data['id'] = $id;  }
             $id = $this->data($data)->allowField(true)->save();

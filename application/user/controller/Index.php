@@ -11,6 +11,9 @@ namespace app\user\controller;
 class Index extends Base
 {
     public function index(){
-        return '用户中心';
+        if (!is_login()){
+            $this->error( '您还没有登陆',url('User/login') );
+        }
+        return $this->fetch();
     }
 }

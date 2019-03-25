@@ -482,6 +482,8 @@ class Article extends Admin {
     	/* 获取数据对象 */
     	$model_id = input('param.model_id',0);
     	$data = input();
+//    	dump($data);
+//        exit;
     	if(!$model_id)
     		$this->error('模型id不能为空');
     	//获取模型信息
@@ -498,6 +500,8 @@ class Article extends Admin {
         }
         //更新当前模型
         $logic = logic($model['id']);
+//        dump($logic);
+//        exit;
         $res = $logic->updates($update_id);
         $res || $this->error($logic->getError());
         $this->success(!empty($data['id'])?'更新成功':'新增成功', Cookie('__forward__'));

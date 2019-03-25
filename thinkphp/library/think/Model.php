@@ -803,10 +803,13 @@ abstract class Model implements \JsonSerializable, \ArrayAccess
             }
         }
 
+
+
         // 自动关联写入
         if (!empty($this->relationWrite)) {
             $relation = [];
             foreach ($this->relationWrite as $key => $name) {
+
                 if (!is_numeric($key)) {
                     $relation[$key] = [];
                     foreach ($name as $val) {
@@ -823,6 +826,7 @@ abstract class Model implements \JsonSerializable, \ArrayAccess
                 }
             }
         }
+
 
         // 检测字段
         if (!empty($this->field)) {
